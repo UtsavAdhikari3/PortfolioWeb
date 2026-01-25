@@ -1,0 +1,716 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Utsav Adhikari — Developer</title>
+  <meta name="description" content="Backend developer who builds systems that don't break at 3 AM." />
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    :root {
+      --black: #0a0a0a;
+      --white: #fafafa;
+      --red: #dc2626;
+      --gray: #525252;
+      --light-gray: #a3a3a3;
+      --line: #e5e5e5;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--black);
+      background: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px 100px;
+    }
+
+    /* Animated Header */
+    header {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      padding: 60px 0;
+    }
+
+    .glitch-wrapper {
+      position: relative;
+    }
+
+    h1 {
+      font-size: clamp(48px, 8vw, 96px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 0.95;
+      margin-bottom: 24px;
+    }
+
+    .glitch {
+      position: relative;
+      display: inline-block;
+    }
+
+    .glitch::before,
+    .glitch::after {
+      content: attr(data-text);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .glitch::before {
+      left: 2px;
+      text-shadow: -2px 0 var(--red);
+      clip: rect(24px, 550px, 90px, 0);
+      animation: glitch-anim-1 3s infinite linear alternate-reverse;
+    }
+
+    .glitch::after {
+      left: -2px;
+      text-shadow: -2px 0 var(--black);
+      clip: rect(85px, 550px, 140px, 0);
+      animation: glitch-anim-2 2.5s infinite linear alternate-reverse;
+    }
+
+    @keyframes glitch-anim-1 {
+      0% { clip: rect(12px, 9999px, 18px, 0); }
+      10% { clip: rect(93px, 9999px, 43px, 0); }
+      20% { clip: rect(51px, 9999px, 89px, 0); }
+      30% { clip: rect(29px, 9999px, 12px, 0); }
+      40% { clip: rect(78px, 9999px, 56px, 0); }
+      50% { clip: rect(34px, 9999px, 91px, 0); }
+      60% { clip: rect(67px, 9999px, 23px, 0); }
+      70% { clip: rect(15px, 9999px, 72px, 0); }
+      80% { clip: rect(88px, 9999px, 39px, 0); }
+      90% { clip: rect(42px, 9999px, 65px, 0); }
+      100% { clip: rect(71px, 9999px, 28px, 0); }
+    }
+
+    @keyframes glitch-anim-2 {
+      0% { clip: rect(65px, 9999px, 99px, 0); }
+      10% { clip: rect(17px, 9999px, 75px, 0); }
+      20% { clip: rect(83px, 9999px, 31px, 0); }
+      30% { clip: rect(44px, 9999px, 58px, 0); }
+      40% { clip: rect(91px, 9999px, 14px, 0); }
+      50% { clip: rect(26px, 9999px, 82px, 0); }
+      60% { clip: rect(59px, 9999px, 37px, 0); }
+      70% { clip: rect(8px, 9999px, 96px, 0); }
+      80% { clip: rect(73px, 9999px, 21px, 0); }
+      90% { clip: rect(48px, 9999px, 64px, 0); }
+      100% { clip: rect(32px, 9999px, 87px, 0); }
+    }
+
+    .tagline {
+      font-size: clamp(18px, 3vw, 24px);
+      color: var(--gray);
+      max-width: 600px;
+      margin-bottom: 48px;
+      line-height: 1.5;
+    }
+
+    .tagline strong {
+      color: var(--red);
+      font-weight: 600;
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 12px;
+      color: var(--light-gray);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .scroll-hint::after {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 40px;
+      background: var(--line);
+      margin: 12px auto 0;
+      animation: scroll 2s ease-in-out infinite;
+    }
+
+    @keyframes scroll {
+      0%, 100% { transform: translateY(0); opacity: 0; }
+      50% { transform: translateY(20px); opacity: 1; }
+    }
+
+    /* Quick links */
+    .quick-nav {
+      display: flex;
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .quick-link {
+      padding: 12px 24px;
+      border: 1px solid var(--black);
+      font-size: 14px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .quick-link::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: var(--black);
+      transition: left 0.3s ease;
+      z-index: -1;
+    }
+
+    .quick-link:hover::before {
+      left: 0;
+    }
+
+    .quick-link:hover {
+      color: var(--white);
+    }
+
+    .quick-link.primary {
+      background: var(--red);
+      border-color: var(--red);
+      color: var(--white);
+    }
+
+    .quick-link.primary::before {
+      background: var(--black);
+    }
+
+    /* Section styling */
+    section {
+      margin-bottom: 120px;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.8s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    section:nth-child(1) { animation-delay: 0.1s; }
+    section:nth-child(2) { animation-delay: 0.2s; }
+    section:nth-child(3) { animation-delay: 0.3s; }
+    section:nth-child(4) { animation-delay: 0.4s; }
+
+    h2 {
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 700;
+      margin-bottom: 48px;
+      letter-spacing: -0.02em;
+      position: relative;
+      display: inline-block;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: var(--red);
+    }
+
+    /* Philosophy section */
+    .philosophy-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+      margin-top: 48px;
+    }
+
+    .philosophy-card {
+      padding: 32px;
+      border: 1px solid var(--line);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .philosophy-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 0;
+      background: var(--red);
+      transition: height 0.3s ease;
+    }
+
+    .philosophy-card:hover {
+      border-color: var(--black);
+      transform: translateY(-4px);
+    }
+
+    .philosophy-card:hover::before {
+      height: 100%;
+    }
+
+    .philosophy-card h3 {
+      font-size: 18px;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .philosophy-card p {
+      color: var(--gray);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    /* Work showcase */
+    .work-showcase {
+      display: grid;
+      gap: 2px;
+      background: var(--black);
+      margin-top: 48px;
+    }
+
+    .work-item {
+      background: var(--white);
+      padding: 40px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .work-item:hover {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .work-item:hover .work-meta {
+      color: var(--light-gray);
+    }
+
+    .work-item:hover .work-number {
+      color: var(--red);
+    }
+
+    .work-number {
+      font-size: 14px;
+      color: var(--light-gray);
+      margin-bottom: 16px;
+      font-family: monospace;
+    }
+
+    .work-item h3 {
+      font-size: 24px;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .work-meta {
+      color: var(--gray);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    /* Projects grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .project-card {
+      border: 1px solid var(--line);
+      padding: 24px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 50px 50px 0;
+      border-color: transparent var(--red) transparent transparent;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-card:hover {
+      border-color: var(--black);
+    }
+
+    .project-card:hover::before {
+      opacity: 1;
+    }
+
+    .project-card h3 {
+      font-size: 16px;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .project-card p {
+      color: var(--gray);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    /* Contact section */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      margin-top: 48px;
+    }
+
+    .contact-info h3 {
+      font-size: 20px;
+      margin-bottom: 24px;
+      font-weight: 600;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      font-size: 15px;
+    }
+
+    .contact-label {
+      font-family: monospace;
+      font-size: 12px;
+      color: var(--light-gray);
+      min-width: 60px;
+    }
+
+    .contact-value a {
+      position: relative;
+    }
+
+    .contact-value a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--red);
+      transition: width 0.3s ease;
+    }
+
+    .contact-value a:hover::after {
+      width: 100%;
+    }
+
+    .cta-text {
+      color: var(--gray);
+      line-height: 1.8;
+      font-size: 16px;
+    }
+
+    .cta-text strong {
+      color: var(--black);
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 120px;
+      padding: 40px 0;
+      border-top: 1px solid var(--line);
+      text-align: center;
+      color: var(--light-gray);
+      font-size: 13px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 20px 80px;
+      }
+
+      header {
+        min-height: 90vh;
+      }
+
+      h1 {
+        font-size: 48px;
+      }
+
+      .tagline {
+        font-size: 18px;
+      }
+
+      .quick-nav {
+        flex-direction: column;
+      }
+
+      .quick-link {
+        text-align: center;
+      }
+
+      .philosophy-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .work-item {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="glitch-wrapper">
+        <h1>
+          <span class="glitch" data-text="Utsav Adhikari">Utsav Adhikari</span>
+        </h1>
+      </div>
+      
+      <p class="tagline">
+        I build <strong>systems that don't break at 3 AM</strong>. Backend developer focused on the unglamorous parts: correctness, reliability, and making operators' lives easier.
+      </p>
+
+      <div class="quick-nav">
+        <a href="#philosophy" class="quick-link primary">How I think</a>
+        <a href="#work" class="quick-link">What I've built</a>
+        <a href="#contact" class="quick-link">Get in touch</a>
+      </div>
+
+      <div class="scroll-hint">Scroll</div>
+    </header>
+
+    <section id="philosophy">
+      <h2>Philosophy</h2>
+      
+      <div class="philosophy-grid">
+        <div class="philosophy-card">
+          <h3>Prevent, don't patch</h3>
+          <p>
+            I design systems to prevent bad states from happening in the first place. Type safety, validation layers, state machines—boring stuff that saves you from midnight debugging sessions.
+          </p>
+        </div>
+
+        <div class="philosophy-card">
+          <h3>Operators are users too</h3>
+          <p>
+            Your claims processor dealing with 200 submissions a day deserves a UI that doesn't make them want to quit. Bulk actions, clear errors, no cognitive overload.
+          </p>
+        </div>
+
+        <div class="philosophy-card">
+          <h3>Every exception tells a story</h3>
+          <p>
+            When something fails in a reconciliation run, someone needs to understand why. I build systems where every error is traceable, explainable, and fixable without a developer.
+          </p>
+        </div>
+
+        <div class="philosophy-card">
+          <h3>Ship small, ship often</h3>
+          <p>
+            Big bang releases are for people who like stress. I prefer incremental changes with clear rollback paths. Your production environment will thank you.
+          </p>
+        </div>
+
+        <div class="philosophy-card">
+          <h3>The database is not a cache</h3>
+          <p>
+            Data modeling matters. Normalize where integrity matters, denormalize for speed and auditability. Every schema decision is a bet on future maintenance pain.
+          </p>
+        </div>
+
+        <div class="philosophy-card">
+          <h3>Logs are love letters to future you</h3>
+          <p>
+            Structured logging, correlation IDs, context at every level. When production breaks, you shouldn't need to deploy debug builds to figure out what happened.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <h2>What I've built</h2>
+
+      <div class="work-showcase">
+        <div class="work-item">
+          <div class="work-number">[001]</div>
+          <h3>Claims processing that handles edge cases</h3>
+          <p class="work-meta">
+            Built state-machine-based workflows for government claims with proper status transitions and duplicate prevention. The kind of system where "resubmit" actually means something specific, not "hope for the best." .NET Core, explicit invariants, lots of validation.
+          </p>
+        </div>
+
+        <div class="work-item">
+          <div class="work-number">[002]</div>
+          <h3>Reconciliation engine for thousands of records</h3>
+          <p class="work-meta">
+            Designed bulk ingestion pipelines with intelligent matching algorithms. Every discrepancy is logged, categorized, and reviewable. No black boxes. Oracle schemas optimized for both write speed and auditability.
+          </p>
+        </div>
+
+        <div class="work-item">
+          <div class="work-number">[003]</div>
+          <h3>Admin interfaces that reduce operator burnout</h3>
+          <p class="work-meta">
+            Built tools that let people process 200 items in the time it used to take for 50. Bulk select, batch actions, inline validation, optimistic updates. Knockout.js and React where it makes sense.
+          </p>
+        </div>
+
+        <div class="work-item">
+          <div class="work-number">[004]</div>
+          <h3>Python services with proper error boundaries</h3>
+          <p class="work-meta">
+            API design that doesn't surprise you. Consistent error shapes, proper status codes, pagination that works. The stuff that seems obvious until you inherit someone else's API.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Side projects</h2>
+
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3>Rate limiter with Redis</h3>
+          <p>Token bucket algorithm, per-user tier throttling, JWT middleware. The basics done right.</p>
+        </div>
+
+        <div class="project-card">
+          <h3>Transaction reconciliation</h3>
+          <p>Batch processor for payment matching across systems. Exception reporting, audit trails, data integrity checks.</p>
+        </div>
+
+        <div class="project-card">
+          <h3>File upload with virus scanning</h3>
+          <p>Async pipeline with ClamAV integration, chunked uploads, S3 storage, webhook notifications.</p>
+        </div>
+
+        <div class="project-card">
+          <h3>Database migration tool</h3>
+          <p>Safe Oracle schema migrations with rollback support and integrity validation.</p>
+        </div>
+
+        <div class="project-card">
+          <h3>Webhook delivery system</h3>
+          <p>Event notifications with retry logic, exponential backoff, dead letter queue, replay functionality.</p>
+        </div>
+
+        <div class="project-card">
+          <h3>Job scheduler</h3>
+          <p>Cron-like system with distributed locking (Redis), duplicate prevention, execution history.</p>
+        </div>
+
+        <div class="project-card">
+          <h3>Log aggregation API</h3>
+          <p>Centralized logging with Elasticsearch, pattern matching, alerting, retention policies.</p>
+        </div>
+
+        <div class="project-card">
+          <h3>Smart parking system</h3>
+          <p>Real-time slot allocation, transparent fee computation, preventing ghost occupancy.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Let's talk</h2>
+
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3>Get in touch</h3>
+          <div class="contact-links">
+            <div class="contact-item">
+              <span class="contact-label">EMAIL</span>
+              <div class="contact-value">
+                <a href="mailto:utsavadhikari99@gmail.com">utsavadhikari99@gmail.com</a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <span class="contact-label">PHONE</span>
+              <div class="contact-value">
+                <a href="tel:+9779863594575">+977 9863594575</a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <span class="contact-label">LOCATION</span>
+              <div class="contact-value">Kathmandu, Nepal</div>
+            </div>
+
+            <div class="contact-item">
+              <span class="contact-label">LINKS</span>
+              <div class="contact-value">
+                <a href="https://www.linkedin.com/in/utsav-adhikari-762a42235/" target="_blank">LinkedIn</a> · 
+                <a href="https://github.com/UtsavAdhikari3" target="_blank">GitHub</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <p class="cta-text">
+            I'm interested in backend-heavy roles where <strong>correctness matters more than move-fast-break-things</strong>. If you're building financial systems, government platforms, or anything where "it mostly works" isn't good enough—let's talk.
+          </p>
+          <p class="cta-text" style="margin-top: 24px;">
+            <strong>Stack:</strong> Python, .NET Core, Oracle/PL-SQL, React, API design, distributed systems patterns.
+          </p>
+          <p class="cta-text" style="margin-top: 16px;">
+            <a href="assets/UtsavAdhikari_CV.pdf" target="_blank" style="color: var(--red);">View CV →</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Utsav Adhikari · Built with care, not hype
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
