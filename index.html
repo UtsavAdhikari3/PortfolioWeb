@@ -610,49 +610,75 @@
 
     <section id="projects">
       <h2>Side projects</h2>
-
+    
       <div class="projects-grid">
         <div class="project-card">
-          <h3>Rate limiter with Redis</h3>
-          <p>Token bucket algorithm, per-user tier throttling, JWT middleware. The basics done right.</p>
+          <h3>Reliable Payment Processing API</h3>
+          <p>
+            Built a payment system that safely handles duplicate requests and network retries without charging users twice.
+            Makes sure every payment or refund is recorded correctly, and each action can be traced later.
+          </p>
         </div>
-
+    
         <div class="project-card">
-          <h3>Transaction reconciliation</h3>
-          <p>Batch processor for payment matching across systems. Exception reporting, audit trails, data integrity checks.</p>
+          <h3>Order System with Background Events</h3>
+          <p>
+            Built a system where placing an order triggers background steps like taking payment and sending notifications.
+            Designed it so messages don’t get lost if the server crashes mid-way, and failed steps can be retried safely.
+          </p>
         </div>
-
+    
         <div class="project-card">
-          <h3>File upload with virus scanning</h3>
-          <p>Async pipeline with ClamAV integration, chunked uploads, S3 storage, webhook notifications.</p>
+          <h3>Transaction Reconciliation Engine</h3>
+          <p>
+            Batch tool that compares records from two systems (like bank vs internal data) and matches what should match.
+            Anything that doesn’t match is grouped into clear “reasons” so a person can review and fix issues quickly.
+          </p>
         </div>
-
+    
         <div class="project-card">
-          <h3>Database migration tool</h3>
-          <p>Safe Oracle schema migrations with rollback support and integrity validation.</p>
+          <h3>Job Scheduler (Cron-like)</h3>
+          <p>
+            Built a scheduler that runs background jobs on a schedule, with protection against running the same job twice.
+            Keeps history of each run, saves errors, and supports rerunning failed jobs when needed.
+          </p>
         </div>
-
+    
         <div class="project-card">
-          <h3>Webhook delivery system</h3>
-          <p>Event notifications with retry logic, exponential backoff, dead letter queue, replay functionality.</p>
+          <h3>Webhook Delivery System</h3>
+          <p>
+            Sends events to other systems (webhooks) with retry support when the receiver is down.
+            Tracks delivery status, stores failures for later review, and allows replaying events when the target is ready.
+          </p>
         </div>
-
+    
         <div class="project-card">
-          <h3>Job scheduler</h3>
-          <p>Cron-like system with distributed locking (Redis), duplicate prevention, execution history.</p>
+          <h3>Logging & Monitoring Toolkit</h3>
+          <p>
+            Built a structured logging setup that makes debugging easier: each request gets a tracking ID and consistent logs.
+            Helps answer “what happened?” quickly when something breaks in production.
+          </p>
         </div>
-
+    
         <div class="project-card">
-          <h3>Log aggregation API</h3>
-          <p>Centralized logging with Elasticsearch, pattern matching, alerting, retention policies.</p>
+          <h3>Rate Limiter (Redis-backed)</h3>
+          <p>
+            Limits how many requests a user can make in a time window to protect APIs from spam and overload.
+            Supports different limits per user type and works across multiple servers using Redis.
+          </p>
         </div>
-
+    
         <div class="project-card">
-          <h3>Smart parking system</h3>
-          <p>Real-time slot allocation, transparent fee computation, preventing ghost occupancy.</p>
+          <h3>Secure File Upload Pipeline</h3>
+          <p>
+            Upload system that supports large files and processes them safely in the background.
+            Includes virus scanning, safe storage, and clear status updates so users know what’s happening.
+          </p>
         </div>
       </div>
     </section>
+    
+    
 
     <section id="contact">
       <h2>Let's talk</h2>
