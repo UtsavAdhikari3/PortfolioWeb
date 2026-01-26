@@ -346,6 +346,36 @@
       position: relative;
       overflow: hidden;
     }
+    .project-links {
+      margin-top: 12px;
+      font-size: 12px;
+      font-family: monospace;
+    }
+
+    .project-links a {
+      color: var(--gray);
+      position: relative;
+    }
+
+    .project-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--red);
+      transition: width 0.25s ease;
+    }
+
+    .project-links a:hover {
+      color: var(--black);
+    }
+
+    .project-links a:hover::after {
+      width: 100%;
+    }
+
 
     .project-card::before {
       content: '';
@@ -666,7 +696,14 @@
             Limits how many requests a user can make in a time window to protect APIs from spam and overload.
             Supports different limits per user type and works across multiple servers using Redis.
           </p>
+        
+          <div class="project-links">
+            <a href="https://github.com/UtsavAdhikari3/RateLimiterRedis" target="_blank">
+              View source →
+            </a>
+          </div>
         </div>
+        
     
         <div class="project-card">
           <h3>Secure File Upload Pipeline</h3>
