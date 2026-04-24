@@ -41,7 +41,7 @@
       .container {
         max-width: 900px;
         margin: 0 auto;
-        padding: 0 24px 100px;
+        padding: 0 24px 80px;
       }
 
       /* Animated Header */
@@ -171,13 +171,41 @@
         font-size: clamp(18px, 3vw, 24px);
         color: var(--gray);
         max-width: 600px;
-        margin-bottom: 48px;
+        margin-bottom: 40px;
         line-height: 1.5;
       }
 
       .tagline strong {
         color: var(--red);
         font-weight: 600;
+      }
+
+      /* Stack/CV row under tagline */
+      .header-meta {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        margin-bottom: 40px;
+        flex-wrap: wrap;
+      }
+
+      .stack-line {
+        font-size: 13px;
+        color: var(--light-gray);
+        font-family: monospace;
+      }
+
+      .cv-link-inline {
+        font-size: 13px;
+        color: var(--red);
+        border-bottom: 1px solid var(--red);
+        padding-bottom: 1px;
+        transition: opacity 0.2s;
+        white-space: nowrap;
+      }
+
+      .cv-link-inline:hover {
+        opacity: 0.7;
       }
 
       .scroll-hint {
@@ -217,7 +245,6 @@
       .quick-nav {
         display: flex;
         gap: 16px;
-        margin-top: 32px;
       }
 
       .quick-link {
@@ -244,7 +271,6 @@
       .quick-link:hover::before {
         left: 0;
       }
-
       .quick-link:hover {
         color: var(--white);
       }
@@ -261,7 +287,7 @@
 
       /* Section styling */
       section {
-        margin-bottom: 120px;
+        margin-bottom: 80px;
         opacity: 0;
         transform: translateY(30px);
         animation: fadeInUp 0.8s ease forwards;
@@ -288,9 +314,9 @@
       }
 
       h2 {
-        font-size: clamp(32px, 5vw, 48px);
+        font-size: clamp(28px, 4vw, 40px);
         font-weight: 700;
-        margin-bottom: 48px;
+        margin-bottom: 36px;
         letter-spacing: -0.02em;
         position: relative;
         display: inline-block;
@@ -309,13 +335,12 @@
       /* Philosophy section */
       .philosophy-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 32px;
-        margin-top: 48px;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 24px;
       }
 
       .philosophy-card {
-        padding: 32px;
+        padding: 24px 28px;
         border: 1px solid var(--line);
         transition: all 0.3s ease;
         position: relative;
@@ -342,14 +367,14 @@
       }
 
       .philosophy-card h3 {
-        font-size: 18px;
-        margin-bottom: 12px;
+        font-size: 16px;
+        margin-bottom: 8px;
         font-weight: 600;
       }
 
       .philosophy-card p {
         color: var(--gray);
-        font-size: 14px;
+        font-size: 13px;
         line-height: 1.7;
       }
 
@@ -358,12 +383,11 @@
         display: grid;
         gap: 2px;
         background: var(--black);
-        margin-top: 48px;
       }
 
       .work-item {
         background: var(--white);
-        padding: 40px;
+        padding: 32px 36px;
         transition: all 0.3s ease;
         cursor: pointer;
       }
@@ -376,50 +400,50 @@
       .work-item:hover .work-meta {
         color: var(--light-gray);
       }
-
       .work-item:hover .work-number {
         color: var(--red);
       }
 
       .work-number {
-        font-size: 14px;
+        font-size: 13px;
         color: var(--light-gray);
-        margin-bottom: 16px;
+        margin-bottom: 12px;
         font-family: monospace;
       }
 
       .work-item h3 {
-        font-size: 24px;
-        margin-bottom: 12px;
+        font-size: 20px;
+        margin-bottom: 10px;
         font-weight: 600;
       }
 
       .work-meta {
         color: var(--gray);
-        font-size: 14px;
+        font-size: 13px;
         line-height: 1.7;
       }
 
       /* Projects grid */
       .projects-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-        gap: 24px;
-        margin-top: 48px;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
       }
 
       .project-card {
         border: 1px solid var(--line);
-        padding: 24px;
+        padding: 20px 22px;
         transition: all 0.3s ease;
         position: relative;
         overflow: hidden;
       }
+
       .project-links {
-        margin-top: 12px;
+        margin-top: 10px;
         font-size: 12px;
         font-family: monospace;
       }
+
       .work-item:hover .project-links a {
         color: var(--white);
       }
@@ -443,7 +467,6 @@
       .project-links a:hover {
         color: var(--black);
       }
-
       .project-links a:hover::after {
         width: 100%;
       }
@@ -456,7 +479,7 @@
         width: 0;
         height: 0;
         border-style: solid;
-        border-width: 0 50px 50px 0;
+        border-width: 0 44px 44px 0;
         border-color: transparent var(--red) transparent transparent;
         opacity: 0;
         transition: opacity 0.3s ease;
@@ -465,14 +488,13 @@
       .project-card:hover {
         border-color: var(--black);
       }
-
       .project-card:hover::before {
         opacity: 1;
       }
 
       .project-card h3 {
-        font-size: 16px;
-        margin-bottom: 8px;
+        font-size: 14px;
+        margin-bottom: 6px;
         font-weight: 600;
       }
 
@@ -486,32 +508,31 @@
       .contact-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 80px;
-        margin-top: 48px;
+        gap: 64px;
       }
 
       .contact-info h3 {
-        font-size: 20px;
-        margin-bottom: 24px;
+        font-size: 18px;
+        margin-bottom: 20px;
         font-weight: 600;
       }
 
       .contact-links {
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 16px;
       }
 
       .contact-item {
         display: flex;
         align-items: baseline;
         gap: 16px;
-        font-size: 15px;
+        font-size: 14px;
       }
 
       .contact-label {
         font-family: monospace;
-        font-size: 12px;
+        font-size: 11px;
         color: var(--light-gray);
         min-width: 60px;
       }
@@ -538,7 +559,7 @@
       .cta-text {
         color: var(--gray);
         line-height: 1.8;
-        font-size: 16px;
+        font-size: 15px;
       }
 
       .cta-text strong {
@@ -547,8 +568,8 @@
 
       /* Footer */
       footer {
-        margin-top: 120px;
-        padding: 40px 0;
+        margin-top: 80px;
+        padding: 32px 0;
         border-top: 1px solid var(--line);
         text-align: center;
         color: var(--light-gray);
@@ -558,44 +579,40 @@
       /* Responsive */
       @media (max-width: 768px) {
         .container {
-          padding: 0 20px 80px;
+          padding: 0 20px 60px;
         }
-
         header {
           min-height: 90vh;
         }
-
         h1 {
           font-size: 48px;
         }
-
         .tagline {
           font-size: 18px;
         }
-
         .quick-nav {
           flex-direction: column;
         }
-
         .quick-link {
           text-align: center;
         }
-
         .philosophy-grid {
           grid-template-columns: 1fr;
         }
-
         .projects-grid {
           grid-template-columns: 1fr;
         }
-
         .contact-grid {
           grid-template-columns: 1fr;
           gap: 40px;
         }
-
         .work-item {
           padding: 24px;
+        }
+        .header-meta {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 10px;
         }
       }
     </style>
@@ -617,6 +634,19 @@
           developer focused on the unglamorous parts: correctness, reliability,
           and making operators' lives easier.
         </p>
+
+        <div class="header-meta">
+          <span class="stack-line"
+            >Python · .NET Core · Oracle/PL-SQL · React · Distributed
+            Systems</span
+          >
+          <a
+            href="assets/UtsavAdhikari.pdf"
+            target="_blank"
+            class="cv-link-inline"
+            >View CV →</a
+          >
+        </div>
 
         <div class="quick-nav">
           <a href="#philosophy" class="quick-link primary">How I think</a>
@@ -686,7 +716,6 @@
           </div>
         </div>
       </section>
-
       <section id="work">
         <h2>What I've built</h2>
 
@@ -695,59 +724,49 @@
             <div class="work-number">[001]</div>
             <h3>WalletWo</h3>
             <p class="work-meta">
-              Built a full-stack digital wallet system using Django, Django REST
-              Framework, and React. Implemented core features including secure
-              user authentication (JWT), wallet balance management, peer-to-peer
-              transfers, and merchant payments. Designed RESTful APIs with
-              atomic transactions, transaction ledger tracking, and real-time
-              balance updates. Focused on reliability, security, and scalable
-              financial workflows.
+              Full-stack digital wallet system using Django, DRF, and React.
+              Secure user authentication (JWT), wallet balance management, P2P
+              transfers, and merchant payments. RESTful APIs with atomic
+              transactions, ledger tracking, and real-time balance updates.
             </p>
             <div class="project-links">
               <a
                 href="https://github.com/UtsavAdhikari3/WalletWo"
                 target="_blank"
+                >View source →</a
               >
-                View source →
-              </a>
             </div>
           </div>
+
           <div class="work-item">
             <div class="work-number">[002]</div>
             <h3>Ecommerce Platform</h3>
             <p class="work-meta">
-              Built a full-stack e-commerce platform using Django, Django REST
-              Framework, and React. Implemented core features including user
-              authentication (JWT), product management, cart functionality, and
-              order processing. Designed RESTful APIs with proper data handling,
-              stock updates, and backend logic. Focused on clean architecture,
-              scalable design, and real-world backend workflows.
+              Full-stack e-commerce platform using Django, DRF, and React. User
+              authentication, product management, cart, and order processing.
+              Clean architecture with scalable design and real-world backend
+              workflows.
             </p>
             <div class="project-links">
               <a
                 href="https://github.com/UtsavAdhikari3/ecom_backend"
                 target="_blank"
+                >View source →</a
               >
-                View source →
-              </a>
             </div>
           </div>
+
           <div class="work-item">
             <div class="work-number">[003]</div>
             <h3>Claims Processing System</h3>
             <p class="work-meta">
-              Contributed to an internal claims processing system for my
-              employer, building workflow logic for claim submission,
-              validation, status transitions, duplicate prevention, and
-              resubmission handling. Worked on backend business rules,
-              database-driven processes, and edge-case handling for real-world
+              Internal system for my employer — workflow logic for claim
+              submission, validation, status transitions, duplicate prevention,
+              and resubmission handling. Backend business rules for real-world
               government/enterprise workflows.
             </p>
             <div class="project-links">
-              <span
-                >Private employer project — source code not publicly
-                available</span
-              >
+              <span>Private employer project — source not public</span>
             </div>
           </div>
 
@@ -755,17 +774,13 @@
             <div class="work-number">[004]</div>
             <h3>Reconciliation Engine</h3>
             <p class="work-meta">
-              Contributed to an internal reconciliation system for my employer,
-              focused on bulk record processing, transaction matching,
-              discrepancy tracking, and audit-friendly review workflows. Worked
-              with backend APIs, database logic, and validation rules to support
-              accurate financial record comparison at scale.
+              Internal system for my employer — bulk record processing,
+              transaction matching, discrepancy tracking, and audit-friendly
+              review workflows. Backend APIs and validation rules for financial
+              record comparison at scale.
             </p>
             <div class="project-links">
-              <span
-                >Private employer project — source code not publicly
-                available</span
-              >
+              <span>Private employer project — source not public</span>
             </div>
           </div>
         </div>
@@ -777,70 +792,52 @@
           <div class="project-card">
             <h3>Reliable Payment Processing API</h3>
             <p>
-              Built a payment system that safely handles duplicate requests and
-              network retries without charging users twice. Makes sure every
-              payment or refund is recorded correctly, and each action can be
-              traced later.
+              Handles duplicate requests and network retries without charging
+              users twice. Every payment or refund is recorded correctly and
+              traceable.
             </p>
           </div>
 
           <div class="project-card">
             <h3>Order System with Background Events</h3>
             <p>
-              Built a system where placing an order triggers background steps
-              like taking payment and sending notifications. Designed it so
-              messages don’t get lost if the server crashes mid-way, and failed
-              steps can be retried safely.
+              Placing an order triggers background steps like payment and
+              notifications. Messages don't get lost on crashes, and failed
+              steps retry safely.
             </p>
           </div>
 
           <div class="project-card">
             <h3>Transaction Reconciliation Engine</h3>
             <p>
-              Batch tool that compares records from two systems (like bank vs
-              internal data) and matches what should match. Anything that
-              doesn’t match is grouped into clear “reasons” so a person can
-              review and fix issues quickly.
+              Batch tool that compares two systems (bank vs internal data) and
+              groups mismatches into clear "reasons" for fast human review.
             </p>
           </div>
 
           <div class="project-card">
             <h3>Job Scheduler (Cron-like)</h3>
             <p>
-              Built a scheduler that runs background jobs on a schedule, with
-              protection against running the same job twice. Keeps history of
-              each run, saves errors, and supports rerunning failed jobs when
-              needed.
+              Runs background jobs on a schedule with protection against
+              duplicate runs. Keeps full history, saves errors, supports reruns.
             </p>
           </div>
 
           <div class="project-card">
             <h3>Webhook Delivery System</h3>
             <p>
-              Sends events to other systems (webhooks) with retry support when
-              the receiver is down. Tracks delivery status, stores failures for
-              later review, and allows replaying events when the target is
+              Sends events to external systems with retry support. Tracks
+              delivery status and allows replaying events when the target is
               ready.
-            </p>
-          </div>
-
-          <div class="project-card">
-            <h3>Logging & Monitoring Toolkit</h3>
-            <p>
-              Built a structured logging setup that makes debugging easier: each
-              request gets a tracking ID and consistent logs. Helps answer “what
-              happened?” quickly when something breaks in production.
             </p>
           </div>
 
           <div class="project-card">
             <h3>Rate Limiter (Redis-backed)</h3>
             <p>
-              Limits how many requests a user can make in a time window to
-              protect APIs from spam and overload. Supports different limits per
-              user type and works across multiple servers using Redis.
+              Limits requests per user per time window. Supports different
+              limits per user type, works across multiple servers via Redis.
             </p>
-
             <div class="project-links">
               <a
                 href="https://github.com/UtsavAdhikari3/RateLimiterRedis"
@@ -852,11 +849,18 @@
           </div>
 
           <div class="project-card">
+            <h3>Logging & Monitoring Toolkit</h3>
+            <p>
+              Structured logging with per-request tracking IDs and consistent
+              context. Answers "what happened?" quickly when production breaks.
+            </p>
+          </div>
+
+          <div class="project-card">
             <h3>Secure File Upload Pipeline</h3>
             <p>
-              Upload system that supports large files and processes them safely
-              in the background. Includes virus scanning, safe storage, and
-              clear status updates so users know what’s happening.
+              Supports large files processed safely in background. Includes
+              virus scanning, safe storage, and clear status updates.
             </p>
           </div>
         </div>
@@ -914,18 +918,6 @@
                 >correctness matters more than move-fast-break-things</strong
               >. If you're building financial systems, government platforms, or
               anything where "it mostly works" isn't good enough—let's talk.
-            </p>
-            <p class="cta-text" style="margin-top: 24px">
-              <strong>Stack:</strong> Python, .NET Core, Oracle/PL-SQL, React,
-              API design, distributed systems patterns.
-            </p>
-            <p class="cta-text" style="margin-top: 16px">
-              <a
-                href="assets/UtsavAdhikari.pdf"
-                target="_blank"
-                style="color: var(--red)"
-                >View CV →</a
-              >
             </p>
           </div>
         </div>
